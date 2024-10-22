@@ -1,0 +1,52 @@
+{
+    "name": "elma_api",
+    "version": "1.0.0",
+    "description": "elma backend",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "build": "react-scripts build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "await": "^0.2.6",
+        "axios": "^1.6.8",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.2",
+        "config": "^3.3.11",
+        "cookie-parser": "^1.4.6",
+        "cookie-session": "^2.1.0",
+        "cors": "^2.8.5",
+        "crypto-js": "^4.2.0",
+        "dateformat": "^5.0.3",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "express-jwt": "^8.4.1",
+        "jade": "^1.11.0",
+        "jquery": "^3.7.1",
+        "jsonwebtoken": "^9.0.2",
+        "md5": "^2.3.0",
+        "moment": "^2.30.1",
+        "mongodb": "^6.3.0",
+        "mongoose": "^8.0.3",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.5-lts.1",
+        "node-fetch": "^3.3.2",
+        "nodemon": "^3.0.2",
+        "passport": "^0.7.0",
+        "passport-google-oauth20": "^2.0.0",
+        "prettier": "^3.1.1",
+        "pug": "^3.0.2",
+        "qs": "^6.12.0",
+        "request": "^2.88.2",
+        "serve-favicon": "^2.5.0",
+        "set-tz": "^0.2.0",
+        "sha256": "^0.2.0",
+        "socket.io": "^4.7.5"
+    },
+    "devDependencies": {
+        "@types/multer": "^1.4.11"
+    }
+}
