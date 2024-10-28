@@ -2,25 +2,30 @@ const { Category } = require('../models/category')
 const express = require('express')
 const router = express.Router()
 
-// get all category
-router.get(`/`, async (req, res) => {
-    category_list = await Category.find()
-
-    if (!category_list) res.statusCode(500).json({ success: false })
-
-    res.status(200).send(category_list)
+// get all category 
+router.get(`/getAll`, async (req, res) => {
+    try {
+        const category_list = await Category.find()
+        if (!category_list) 
+            res.statusCode(404).json({ success: false, message: 'Category not found' })
+        res.status(200).json(category_list)
+    } catch (error) {
+        res.status(500).json({message: 'Internal Server Error'})
+    }
 })
 
 // get category by id
 router.get(`/:id`, async (req, res) => {
-    const category = await Category.findById(req.params.id)
-
-    if (!category)
-        res.status(500).json({
-            message: 'The category with the given ID was not found',
-        })
-
-    res.status(200).send(category)
+    try {
+        const category = await Category.findById(req.params.id)
+        if (category.length === 0)
+            res.status(404).json({
+                message: 'The category with the given ID was not found',
+            })
+        res.status(200).send(category)
+    } catch (error) {
+        res.status(500).send({message: 'Error get category by id', error})
+    }
 })
 
 // update category
@@ -32,7 +37,6 @@ router.put('/:id', async (req, res) => {
             icon: req.body.icon,
             color: req.body.color,
         },
-        // Lấy dữ liệu trả về là dữ liệu mới đẫ được update
         {
             new: true,
         },
@@ -57,7 +61,6 @@ router.post(`/`, async (req, res) => {
 
 // delete by id
 router.delete('/:_id', (req, res) => {
-    // Sử dụng findOneAndDelete thay cho findByIdAndRemove
     Category.findOneAndDelete(req.params.id)
         .then((category) => {
             if (category)

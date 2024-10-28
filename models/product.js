@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-
-// Create schema
 const product_schema = mongoose.Schema({
     name: {
         type: String,
@@ -62,6 +60,5 @@ product_schema.set('toJSON', {
     virtual: true,
 })
 
-// Sử dụng Product trong tất cả các file của project | Global
 exports.Product = mongoose.model('Product', product_schema)
 exports.product_schema = product_schema

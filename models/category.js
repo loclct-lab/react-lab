@@ -5,9 +5,6 @@ const category_schema = mongoose.Schema({
         type: String,
         require: true,
     },
-    color: {
-        type: String,
-    },
     icon: {
         type: String,
     },
